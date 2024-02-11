@@ -11,6 +11,9 @@ export const LoginSchema = z.object({
   }).min(1, {
     message: 'Password is required',
   }),
+  code: z.optional(z.string({
+    invalid_type_error: 'Please enter a code',
+  })),
 });
 
 export const RegisterSchema = z.object({

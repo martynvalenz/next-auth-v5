@@ -3,7 +3,7 @@
 import { ResetSchema } from "@/schemas";
 import { getUserByEmail } from '@/actions/user/user.actions';
 import { z } from "zod";
-import { generatePasswordResetToken } from "../user/generate-token.actions";
+import { generatePasswordResetToken } from "../tokens/generate-token.actions";
 import { sendPasswordResetEmail } from "../mail/send-verification-token";
 
 export const resetePassword = async(formData:z.infer<typeof ResetSchema>) => {

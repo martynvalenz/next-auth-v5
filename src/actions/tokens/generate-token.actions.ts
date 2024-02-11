@@ -1,8 +1,8 @@
 'use server';
 import { db } from "@/lib/db";
 import {v4 as uuid} from 'uuid';
-import { getVerificationTokenByEmail } from "./token.actions";
-import { getPasswordResetTokenByEmail } from "./reset-password-token";
+import { getVerificationTokenByEmail } from "@/actions/tokens/token.actions";
+import { getPasswordResetTokenByEmail } from "@/actions/user/reset-password-token";
 
 export const generateVerificationToken = async (email: string) => {
   try {

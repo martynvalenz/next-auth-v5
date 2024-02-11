@@ -36,3 +36,18 @@ export const sendPasswordResetEmail = async(email:string,token:string) => {
     throw new Error('Failed to send password reset email');
   }
 }
+
+export const sendTwoFactorEmail = async(email:string,token:string) => {
+  try {
+    await resend.emails.send({
+      from:`${process.env.EMAIL_SENDER}`,
+      to:email,
+      subject:'2FA cide',
+      html:`<p>This is your 2FA code: ${token}</p>`
+    })
+  } 
+  catch (error) {
+    console.error(error);
+    throw new Error('Failed to send two factor email');
+  }
+}

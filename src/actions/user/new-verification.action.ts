@@ -1,6 +1,6 @@
 'use server';
 import { db } from "@/lib/db";
-import { deleteVerificationToken, getVerificationTokenByToken } from "@/actions/user/token.actions";
+import { deleteVerificationToken, getVerificationTokenByToken } from "@/actions/tokens/token.actions";
 import { getUserByEmail } from "@/actions/user/user.actions";
 
 export const newVerification = async(token:string) => {
