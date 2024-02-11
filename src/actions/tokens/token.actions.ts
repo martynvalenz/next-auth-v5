@@ -48,7 +48,7 @@ export const deleteVerificationToken = async (id: string) => {
 export const generateTwoFactorToken = async (email: string) => {
   try {
     const token = crypto.randomInt(100_000, 1_000_000).toString();
-    const expires = new Date(new Date().getTime() + 1000 * 3600);
+    const expires = new Date(new Date().getTime() + 1000 * 5 * 60); // 5 minutes
 
     const existingToken = await getTwoFactorTokenByEmail(email);
 

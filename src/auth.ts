@@ -65,21 +65,19 @@ export const {
       if(!user) return token;
       
       token.role = user.role;
+      token.image = user.image;
       return token
     },
     async session({ session, token }) {
       if(token.sub && session.user){
-        session.user.id = token.sub;
-        // session.user.role = token.role as UserRole;
+        session.user.id = token.sub as string;
+        session.user.role = token.role as UserRole | 'USER';
+        session.user.email = token.email as string;
+        session.user.name = token.name as string;
+        session.user.image = token.image as string;
       }
 
-      return {
-        ...session,
-        user:{
-          ...session.user,
-          role: token.role as UserRole
-        }
-      }
+      return session;
     },
   },
   session: { 
