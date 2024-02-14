@@ -39,7 +39,8 @@ export default {
           access_type: "offline",
           response_type: "code"
         }
-      }
+      },
+      allowDangerousEmailAccountLinking: true
     }),
     Google({
       name:'Google',
@@ -51,7 +52,8 @@ export default {
           access_type: "offline",
           response_type: "code"
         }
-      }
+      },
+      allowDangerousEmailAccountLinking: true
     })
   ],
 } satisfies NextAuthConfig

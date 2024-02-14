@@ -34,7 +34,10 @@ export const {
   callbacks:{
     async signIn({ user, account }) {
       // Allow OAuth withou email verification
-      if(account?.provider !== 'credentials') return true;
+      if (account?.provider === "google") {
+        return true;
+      }
+      // if(account?.provider !== 'credentials') return true;
       const existingUser = await getUserById(user?.id!);
       // Prevent sign in without email verification
       if(!existingUser?.emailVerified) return false;
@@ -50,7 +53,7 @@ export const {
           where:{
             id:twoFactorConfirmation.id
           }
-        })
+        });
       }
 
       return true
@@ -80,7 +83,7 @@ export const {
       return session;
     },
   },
-  session: { 
+  session: {
     strategy: "jwt",
     maxAge: 180 * 24 * 60 * 60, // 180 days
   },

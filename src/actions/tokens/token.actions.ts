@@ -5,7 +5,7 @@ import { getTwoFactorTokenByEmail, getTwoFactorTokenByToken } from './two-factor
 
 export const getVerificationTokenByEmail = async (email: string) => {
   try {
-    const verificationToken = await db.verificationToken.findFirst({
+    const verificationToken = await db.verificationCredentialToken.findFirst({
       where: {
         email
       }
@@ -19,7 +19,7 @@ export const getVerificationTokenByEmail = async (email: string) => {
 
 export const getVerificationTokenByToken = async (token: string) => {
   try {
-    const verificationToken = await db.verificationToken.findFirst({
+    const verificationToken = await db.verificationCredentialToken.findFirst({
       where: {
         token
       }
@@ -33,7 +33,7 @@ export const getVerificationTokenByToken = async (token: string) => {
 
 export const deleteVerificationToken = async (id: string) => {
   try {
-    await db.verificationToken.delete({
+    await db.verificationCredentialToken.delete({
       where: {
         id
       }

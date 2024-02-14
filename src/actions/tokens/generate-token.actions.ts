@@ -12,14 +12,14 @@ export const generateVerificationToken = async (email: string) => {
     const existingToken = await getVerificationTokenByEmail(email);
 
     if(existingToken){
-      await db.verificationToken.delete({
+      await db.verificationCredentialToken.delete({
         where:{
           id:existingToken.id
         }
       });
     }
 
-    const verificationToken = await db.verificationToken.create({
+    const verificationToken = await db.verificationCredentialToken.create({
       data: {
         email,
         token,
