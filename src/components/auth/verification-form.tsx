@@ -3,8 +3,8 @@
 import {useCallback, useEffect, useState} from 'react'
 import { CardWrapper } from '@/components/auth/card-wrapper'
 import {MoonLoader} from 'react-spinners';
-import { FormError } from '@/components/form-error';
-import { FormSuccess } from '@/components/form-succes';
+import { FormError } from '@/components/notifications/form-error';
+import { FormSuccess } from '@/components/notifications/form-succes';
 import { useSearchParams } from 'next/navigation';
 import { newVerification } from '@/actions/user/new-verification.action';
 

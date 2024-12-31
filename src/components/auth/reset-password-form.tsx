@@ -16,8 +16,8 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form'
-import { FormError } from '@/components/form-error';
-import { FormSuccess } from '@/components/form-succes';
+import { FormError } from '@/components/notifications/form-error';
+import { FormSuccess } from '@/components/notifications/form-succes';
 import { useTransition } from 'react';
 import { resetePassword } from '@/actions/auth/reset-password.action';
 
